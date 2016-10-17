@@ -1,0 +1,1594 @@
+C++ Quick Syntax Reference - Source Code
+
+*** Hello World ***
+ 
+#include <iostream>
+ 
+int main()
+{
+  std::cout << "Hello World";
+}
+ 
+ 
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+  cout << "Hello World";
+}
+ 
+*** Compile and Run ***
+ 
+#include <iostream>
+using namespace std;
+ 
+int main()
+{
+  cout << "Hello World";
+  cin.get();
+}
+
+// single-line comment
+ 
+/* multi-line
+   comment */
+ 
+ 
+*** Variables ***
+ 
+#include <iostream>
+
+int main()
+{
+  // Declaration and assignment
+  int myInt = 50;
+  int myAlt (50);
+  int x = 1, y = 2, z;
+
+  // Output
+  std::cout << myInt << myAlt; // "5050"
+
+  int myOct = 062;  // octal notation (0)
+  int myHex = 0x32; // hexadecimal notation (0x)
+}
+ 
+// Variable scope
+int globalVar; // global variable
+int main() { int localVar; } // local variable
+ 
+ 
+// Default values
+int globalVar; // initialized to 0
+int main() { int localVar; } // uninitialized
+ 
+ 
+// Integer types
+#include <iostream>
+
+int main()
+{
+  char  myChar  = 0; // -128   to +127
+  short myShort = 0; // -32768 to +32767
+  int   myInt   = 0; // -2^31  to +2^31-1
+  long  myLong  = 0; // -2^31  to +2^31-1
+  long long myL2 = 0; // -2^63 to +2^63-1
+
+  std::cout << sizeof(myChar)  // 1 byte (per definition)
+            << sizeof(myShort) // 2
+            << sizeof(myInt)   // 4
+            << sizeof(myLong)  // 4
+            << sizeof(myL2);   // 8
+
+  __int8   myInt8   = 0; // 8 bits
+  __int16  myInt16  = 0; // 16 bits
+  __int32  myInt32  = 0; // 32 bits
+  __int64  myInt64  = 0; // 64 bits
+
+  signed char  myChar  = 0; // -128   to +127
+  signed short myShort = 0; // -32768 to +32767
+  signed int   myInt   = 0; // -2^31  to +2^31-1
+  signed long  myLong  = 0; // -2^31  to +2^31-1
+  signed long long myL2= 0; // -2^63  to +2^63-1
+
+  unsigned char  myChar  = 0; // 0 to 255
+  unsigned short myShort = 0; // 0 to 32767
+  unsigned int   myInt   = 0; // 0 to 2^32-1
+  unsigned long  myLong  = 0; // 0 to 2^32-1
+  unsigned long long myL2= 0; // 0 to 2^64-1
+
+  unsigned uInt; // unsigned int
+  signed sInt;   // signed int
+
+  short myShort; // short int
+  long myLong;   // long int
+
+  // Floating-point types
+  float  myFloat  = 3.14; // 3.4E +/- 38 (7 digits)
+  double myDouble = 3.14; // 1.7E +/- 308 (15 digits)
+  long double myLongDouble = 3.14; // same as double
+
+  myFloat = 12345.678; // rounded to 12345.68
+  myFloat = 3e2; // 3*10^2 = 300
+
+  // Char type
+  char c = 'x'; // assigns 120 (ASCII for 'x')
+
+  std::cout << c; // prints 'x'
+
+  int i = c;            // assigns 120
+  std::cout << i;       // prints 120
+  std::cout << (char)i; // prints 'x'
+
+  // Bool type
+  bool b = false; // true or false value
+}
+ 
+
+// Integer types
+#include <iostream>
+
+int main()
+{
+  char  myChar  = 0; // -128   to +127
+  short myShort = 0; // -32768 to +32767
+  int   myInt   = 0; // -2^31  to +2^31-1
+  long  myLong  = 0; // -2^31  to +2^31-1
+  long long myL = 0; // -2^63 to +2^63-1
+
+  std::cout << sizeof(myChar)  // 1 byte (per definition)
+            << sizeof(myShort) // 2
+            << sizeof(myInt)   // 4
+            << sizeof(myLong)  // 4
+            << sizeof(myL);   // 8
+
+  __int8   myInt8   = 0; // 8 bits
+  __int16  myInt16  = 0; // 16 bits
+  __int32  myInt32  = 0; // 32 bits
+  __int64  myInt64  = 0; // 64 bits
+
+  signed char  myChar2  = 0; // -128   to +127
+  signed short myShort2 = 0; // -32768 to +32767
+  signed int   myInt2   = 0; // -2^31  to +2^31-1
+  signed long  myLong2  = 0; // -2^31  to +2^31-1
+  signed long long myL2 = 0; // -2^63  to +2^63-1
+
+  unsigned char  myChar3  = 0; // 0 to 255
+  unsigned short myShort3 = 0; // 0 to 32767
+  unsigned int   myInt3   = 0; // 0 to 2^32-1
+  unsigned long  myLong3  = 0; // 0 to 2^32-1
+  unsigned long long myL3 = 0; // 0 to 2^64-1
+
+  unsigned uInt; // unsigned int
+  signed sInt;   // signed int
+
+  short myShort4; // short int
+  long myLong4;   // long int
+
+  // Floating-point types
+  float  myFloat  = 3.14; // 3.4E +/- 38 (7 digits)
+  double myDouble = 3.14; // 1.7E +/- 308 (15 digits)
+  long double myLongDouble = 3.14; // same as double
+
+  myFloat = 12345.678; // rounded to 12345.68
+  myFloat = 3e2; // 3*10^2 = 300
+
+  // Char type
+  char c = 'x'; // assigns 120 (ASCII for 'x')
+
+  std::cout << c; // prints 'x'
+
+  int i = c;            // assigns 120
+  std::cout << i;       // prints 120
+  std::cout << (char)i; // prints 'x'
+
+  // Bool type
+  bool b = false; // true or false value
+}
+ 
+*** Operators ***
+ 
+int main()
+{
+  // Arithmetic operators
+  float f = 3 + 2; // 5 // addition
+        f = 3 - 2; // 1 // subtraction
+        f = 3 * 2; // 6 // multiplication
+        f = 3 / 2; // 1 // division
+        f = 3 % 2; // 1 // modulus (division remainder)
+
+  // Combined assignment operators
+  int i = 5;
+      i += 5; // i = i+5;
+      i -= 5; // i = i-5;
+      i *= 5; // i = i*5; 
+      i /= 5; // i = i/5;
+      i %= 5; // i = i%5;
+
+  // Increment and decrement operators
+  i++; // i = i+1;
+  i--; // i = i-1;
+
+  i++; // post-increment
+  i--; // post-decrement
+  ++i; // pre-increment
+  --i; // pre-decrement
+
+  int j;
+  i = 5; j = i++; // j=5, i=6   
+  i = 5; j = ++i; // j=6, i=6
+
+  // Comparison operators
+  bool b = (2 == 3); // false // equal to
+       b = (2 != 3); // true  // not equal to
+       b = (2 > 3);  // false // greater than
+       b = (2 < 3);  // true  // less than
+       b = (2 >= 3); // false // greater than or equal to
+       b = (2 <= 3); // true  // less than or equal to
+
+  // Logical operators
+  b = (true && false); // false // logical and
+  b = (true || false); // true  // logical or
+  b = !(true);         // false // logical not
+
+  // Bitwise operators
+  i = 5 & 4;  // 101 & 100 = 100 (4) // and
+  i = 5 | 4;  // 101 | 100 = 101 (5) // or
+  i = 5 ^ 4;  // 101 ^ 100 = 001 (1) // xor
+  i = 4 << 1; // 100 << 1  =1000 (8) // left shift
+  i = 4 >> 1; // 100 >> 1  =  10 (2) // right shift
+  i = ~4;     // ~00000100 = 11111011 (-5) // invert
+
+  i=5; i &= 4; // 101 & 100 = 100 (4) // and
+  i=5; i |= 4; // 101 | 100 = 101 (5) // or
+  i=5; i ^= 4; // 101 ^ 100 = 001 (1) // xor
+  i=5; i <<= 1;// 101 << 1  =1010 (10)// left shift
+  i=5; i >>= 1;// 101 >> 1  =  10 (2) // right shift
+}
+
+*** Pointers ***
+ 
+#include <iostream>
+
+int main()
+{
+  // Creating pointers
+  int* p; // pointer to an integer
+  int *q; // alternative syntax
+
+  int i = 10;
+  p = &i; // address of i assigned to p
+
+  // Dereferencing pointers
+  std::cout << "Address of i: " <<  p; // ex. 0017FF1C
+  std::cout << "Value of i: "   << *p; // "10"
+
+  p = &i;  // address of i assigned to p
+  *p = 20; // value of i changed through p
+  int* p2 = p; // copy of p (copies address stored in p)
+  int** r = &p; // pointer to p (assigns address of p)
+
+  std::cout << "Address of p: " << r;  // ex. 0017FF28
+  std::cout << "Address of i: " << *r; // ex. 0017FF1C
+  std::cout << "Value of i: "   << **r;// "20"
+
+  // Dynamic allocation
+  int* d = new int; // dynamic allocation
+  delete d; // release allocated memory
+
+  // Null pointer
+  d = 0;    // mark as null pointer
+  delete d; // safe
+  if (d != 0) { *d = 10; } // check for null pointer
+}
+ 
+*** References ***
+ 
+int main()
+{
+  int x = 5;
+  int& r = x;    // r is an alias to x
+  int &s = x;    // alternative syntax
+  r = 10;        // assigns value to r/x
+  int* ptr = &x; // ptr assigned address to x
+}
+ 
+*** Arrays ***
+ 
+#include <iostream>
+
+int main()
+{
+  // Array declaration and allocation
+  int myArray[3]; // integer array with 3 elements
+
+  // Array assignment
+  myArray[0] = 1;
+  myArray[1] = 2;
+  myArray[2] = 3;
+
+  int myArray2[3] = { 1, 2, 3 };
+  int myArray3[] = { 1, 2, 3 };
+
+  std::cout << myArray[0]; // "1"
+
+  // Multi-dimensional arrays
+  int myArray4[2][2] = { { 0, 1 }, { 2, 3 } };
+  myArray4[0][0] = 0;
+  myArray4[0][1] = 1;
+
+  // Dynamic arrays
+  int* p = new int[3]; // dynamically allocated array
+  *(p+1) = 10; // p[1] = 10;
+  delete[] p; // release allocated array
+}
+
+*** String ***
+ 
+#include <string>
+using namespace std;
+
+int main()
+{
+  string h = "Hello";
+  string w (" World");
+
+  // String combining
+  string a = h + w; // Hello World
+  h += w; // Hello World
+
+  string b = "Hello" + w; // ok
+
+  char *c = "World"; // C-style string
+  b = (string)c + c; // ok
+  b = "Hello" + (string)" World"; // ok
+  b = "Hel" "lo"; // ok
+
+  // Escape characters
+  string s = "Hello \
+              World";
+  s = "Hello \n World";
+
+  // String compare
+  s = "Hello";
+  bool x = (s == "Hello"); // true
+
+  // String functions
+  size_t i = s.length(); // 5, length of string
+  i = s.size(); // 5, same as length()
+  s.substr(0,2); // "He"
+  char y = s[0]; // 'H'
+}
+ 
+*** Conditionals ***
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int x = 1;
+
+  // If statement
+  if (x < 1) {
+    cout << x << " < 1";
+  }
+  else if (x > 1) {
+    cout << x << " > 1";
+  }
+  else {
+    cout << x << " == 1";
+  }
+
+  if (x < 1)
+    cout << x << " < 1";
+  else if (x > 1)
+    cout << x << " > 1";
+  else
+    cout << x << " == 1";
+
+  // Switch statement
+  switch (x)
+  {
+    case 0: cout << x << " is 0"; break;
+    case 1: cout << x << " is 1"; break;
+    default: cout << x << " is not 1 or 2"; break;
+  }
+
+  // Ternary operator
+  x = (x < 0.5) ? 0 : 1; // ternary operator
+  (x < 0.5) ? x = 0 : x = 1; // alternative syntax
+}
+ 
+*** Loops ***
+ 
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  // While loop
+  int i = 0;
+  while (i < 10) { cout << i++; } // 0-9
+
+  // Do-while loop
+  int j = 0;
+  do { cout << j++; } while (j < 10); // 0-9
+
+  // For loop
+  for (int k = 0; k < 10; k++) { cout << k; } // 0-9
+
+  for (int k = 0, m = 0; k < 10; k++, m--) {
+    cout << k+m; // 0x10
+  }
+
+  // Break and continue
+  for (int i = 0; i < 10; i++)
+  {
+    break;    // end loop
+    continue; // start next iteration
+  }
+
+  // Goto statement
+  goto myLabel; // jump to label
+  myLabel:      // label declaration
+  ;
+}
+ 
+*** Functions ***
+ 
+#include <iostream>
+#include <string>
+using namespace std;
+
+void myFunction()
+{
+  cout << "Hello World";
+}
+
+void myFunction(string a, string b)
+{
+  cout << a + " " + b;
+}
+
+int main()
+{
+  myFunction(); // "Hello World"
+  myFunction("Hello", "World"); // "Hello World"
+}
+  
+ 
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Default parameter values
+void myFunction(string a, string b = "Earth")
+{
+  cout << a + " " + b;
+}
+
+int main()
+{
+  myFunction("Hello"); // "Hello Earth"
+}
+ 
+ 
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function overloading
+void myFunction(string a, string b) { cout << a+" "+b; }
+void myFunction(string a)           { cout << a; }
+void myFunction(int a)              { cout << a; }
+ 
+ 
+#include <iostream>
+using namespace std;
+
+// Return statement
+int getSum(int a, int b)
+{
+  return a + b;
+}
+
+void dummy() { return; }
+
+int main()
+{
+  cout << getSum(5, 10); // "15"
+  return 0;
+}
+ 
+ 
+// Forward declarations
+void myFunction(int); // prototype
+int main()
+{
+  myFunction(0);
+}
+void myFunction(int a) {}
+ 
+// Pass by value
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+void change(int i)    { i = 10; }
+void change(string s) { s = "Hello World"; }
+ 
+int main()
+{
+  int x = 0;     // value type
+  change(x);     // value is passed
+  cout << x;     // "0"
+ 
+  string y = ""; // reference type
+  change(y);     // object copy is passed
+  cout << y;     // ""
+}
+ 
+// Pass by reference
+#include <iostream>
+using namespace std;
+ 
+void change(int& i) { i = 10; }
+ 
+int main()
+{
+  int x = 0; // value type
+  change(x); // reference is passed
+  cout << x; // "10"
+}
+ 
+// Pass by address
+#include <iostream>
+using namespace std;
+ 
+void change(int* i) { *i = 10; }
+ 
+int main()
+{
+  int x = 0;  // value type
+  change(&x); // address is passed
+  cout << x;  // "10"
+}
+ 
+ 
+// Return by value
+#include <iostream>
+using namespace std;
+ 
+int byVal(int i) { return i + 1; }
+ 
+int main()
+{
+  int a = 10;
+  cout << byVal(a); // "11"
+}
+ 
+ 
+// Return by reference
+#include <iostream>
+using namespace std;
+
+int& byRef(int& i) { return i; }
+ 
+int main()
+{
+  int a = 10;
+  cout << byRef(a); // "10"
+}
+ 
+ 
+// Return by address
+#include <iostream>
+using namespace std;
+
+int* byAdr(int* i) { return i; }
+ 
+int main()
+{
+  int a = 10;
+  cout << *byAdr(&a); // "10"
+}
+ 
+ 
+// Inline functions
+inline int myInc(int i) { return i++; }
+ 
+*** Class ***
+ 
+class MyRectangle
+{
+public:
+  int x, y;
+  int getArea();
+};
+ 
+int MyRectangle::getArea() { return x * y; }
+
+int main()
+{
+  MyRectangle r; // object creation
+  r.x = 10;
+  r.y = 5;
+  int z = r.getArea(); // 50 (5*10)
+
+  MyRectangle r2; // another instance of MyRectangle
+  r2.x = 25;      // not same as r.x
+
+  MyRectangle r3;
+  MyRectangle *p = &r3; // object pointer
+ 
+  p->getArea();
+  (*p).getArea(); // alternative syntax
+}
+ 
+ 
+class MyClass; // class prototype
+ 
+class OtherClass
+{
+  MyClass* m;
+};
+ 
+class MyClass
+{
+  OtherClass* o;
+};
+ 
+*** Constructor ***
+
+class MyRectangle
+{
+ public:
+  int x, y;
+  MyRectangle();
+  MyRectangle(int, int);
+};
+ 
+MyRectangle::MyRectangle() { x = 10; y = 5; }
+MyRectangle::MyRectangle(int x, int y)
+{
+  this->x = x; this->y = y;
+}
+
+int main()
+{
+  // Calls parameterless constructor
+  MyRectangle r;
+ 
+  // Calls constructor accepting two integers
+  MyRectangle t(2,3);
+}
+
+  
+// Destructor
+class Semaphore
+{
+ public:
+  bool *sem;
+ 
+  Semaphore()  { sem = new bool; }
+  ~Semaphore() { delete sem; }
+};
+ 
+ 
+// Direct initialization
+MyClass a(5);
+MyClass b;
+
+// Value initialization
+const MyClass& a = MyClass();
+
+// Copy initialization
+MyClass a = MyClass();
+MyClass b(a);
+
+// New initialization
+MyClass* a = new MyClass();
+MyClass& b = *new MyClass();
+// …
+delete a, b;
+ 
+*** Inheritance ***
+ 
+class Rectangle
+{
+ public:
+  int x, y;
+  int getArea() { return x * y; }
+};
+ 
+class Square : public Rectangle {};
+
+int main()
+{
+  Square s;
+  Rectangle& r = s;  // reference upcast
+  Rectangle* p = &s; // pointer upcast
+
+  Square& a = (Square&) r;  // reference downcast
+  Square& b = (Square&) *p; // pointer downcast
+}
+ 
+*** Overriding ***
+ 
+class Rectangle
+{
+ public:
+  int x, y;
+  int getArea() { return x * y; }
+};
+ 
+class Triangle : public Rectangle
+{
+ public:
+  Triangle(int a, int b) { x = a; y = b; }
+  int getArea() { return x * y / 2; }
+};
+
+int main()
+{
+  Triangle t = Triangle(2,3);
+  t.getArea(); // 3 (2*3/2) calls Triangle's version
+
+  Rectangle& r = t;
+  r.getArea(); // 6 (2*3) calls Rectangle's version
+}
+ 
+ 
+class Rectangle
+{
+ public:
+  int x, y;
+  virtual int getArea() { return x * y; }
+};
+
+class Triangle : public Rectangle
+{
+ public:
+  Triangle(int a, int b) { x = a; y = b; }
+  int getArea() { return x * y / 2; }
+};
+
+int main()
+{
+  Triangle t = Triangle(2,3);
+  Rectangle& r = t;
+  r.getArea(); // 3 (2*3/2) calls Triangle's version
+}
+ 
+ 
+// Base class scoping
+class Rectangle
+{
+ public:
+  int x, y;
+  virtual int getArea() { return x * y; }
+};
+
+class Triangle : public Rectangle
+{
+ public:
+  Triangle(int a, int b) { x = a; y = b; }
+  int getArea() { return Rectangle::getArea() / 2; }
+};
+ 
+// Calling base class constructor
+class Rectangle
+{
+ public:
+  int x, y;
+  Rectangle(int a, int b) { x = a; y = b; }
+};
+ 
+class Triangle : public Rectangle
+{
+ public:
+  Triangle(int a, int b) : Rectangle(a,b) {}
+};
+ 
+*** Access Levels ***
+ 
+class MyClass
+{
+  int myPrivate;
+ 
+ public:
+  int myPublic;
+  void publicMethod();
+};
+ 
+ 
+class MyClass
+{
+  // Unrestricted access
+  public: int myPublic;
+ 
+  // Defining or derived class only
+  protected: int myProtected;
+ 
+  // Defining class only
+  private: int myPrivate;
+ 
+  void test()
+  {
+    myPublic    = 0; // allowed
+    myProtected = 0; // allowed
+    myPrivate   = 0; // allowed
+  }
+};
+
+class MyChild : public MyClass
+{
+  void test()
+  {
+    myPublic    = 0; // allowed
+    myProtected = 0; // allowed
+    myPrivate   = 0; // inaccessible
+  }
+};
+
+class OtherClass
+{
+  void test(MyClass& c)
+  {
+    c.myPublic    = 0; // allowed
+    c.myProtected = 0; // inaccessible
+    c.myPrivate   = 0; // inaccessible
+  }
+};
+ 
+// Friend classes and functions
+class MyClass
+{
+  int myPrivate;
+ 
+  // Give OtherClass access
+  friend class OtherClass;
+};
+ 
+class OtherClass
+{
+  void test(MyClass c) { c.myPrivate = 0; } // allowed
+};
+ 
+class MyClass
+{
+  int myPrivate;
+ 
+  // Give myFriend access
+  friend void myFriend(MyClass c);
+};
+ 
+void myFriend(MyClass c) { c.myPrivate = 0; } // allowed
+ 
+*** Static ***
+ 
+class MyCircle
+{
+ public:
+  double r;         // instance field (one per object)
+  static double pi; // static field (only one copy)
+
+  double getArea() { return pi * r * r; }
+  static double newArea(double a) { return pi * a * a; }
+};
+ 
+double MyCircle::pi = 3.14;
+
+int main()
+{
+  double p = MyCircle::pi;
+  double a = MyCircle::newArea(1);
+}
+  
+// Static local variables
+void myFunc()
+{
+  static int count = 0; // holds # of calls to function
+  count++;
+}
+ 
+*** Enum ***
+ 
+enum Color { Red, Green, Blue };
+
+int main()
+{
+  Color c = Red;
+
+  switch(c)
+  {
+    case Red:   break;
+    case Green: break;
+    case Blue:  break;
+  }
+}
+ 
+ 
+enum Color
+{
+  Red,   // 0
+  Green, // 1
+  Blue   // 2
+};
+ 
+ 
+enum Color
+{
+  Red   = 5,        // 5
+  Green = Red,      // 5
+  Blue  = Green + 2 // 7
+};
+
+*** Struct and Union ***
+ 
+struct Point
+{
+  int x, y;
+} r, s; // object declarations
+ 
+int main()
+{
+  Point p, q; // object declarations
+}
+ 
+struct Point 
+{
+  int x, y;
+} r = { 2, 3 }; // set values of x and y
+ 
+int main() 
+{
+  Point p = { 2, 3 };
+}
+ 
+union Mix
+{
+  char c;  // 1 byte
+  short s; // 2 bytes
+  int i;   // 4 bytes
+} m;
+
+int main()
+{
+  m.c = 0xFF; // set first 8 bits
+  m.s = 0;    // reset first 16 bits
+}
+ 
+union Mix
+{
+  char c[4];                  // 4 bytes
+  struct { short hi, lo; } s; // 4 bytes
+  int i;                      // 4 bytes
+} m;
+
+int main()
+{
+  m.i=0xFF00F00F; // 11111111 00000000 11110000 00001111
+  m.s.lo;         // 11111111 00000000
+  m.s.hi;         //                   11110000 00001111
+  m.c[3];         // 11111111
+  m.c[2];         //          00000000
+  m.c[1];         //                   11110000
+  m.c[0];         //                            00001111
+}
+ 
+ 
+// Anonymous union
+int main()
+{
+  union { short s; }; // defines an unnamed union object
+  s = 15;
+}
+ 
+*** Operator Overloading ***
+ 
+class MyNum
+{
+ public:
+  int val;
+  MyNum(int i) : val(i) {}
+ 
+  MyNum add(MyNum &a)
+  { return MyNum( val + a.val ); }
+
+  MyNum operator +(MyNum &a)
+  { return MyNum( val + a.val ); }
+
+  MyNum& operator++() // ++ prefix
+  { ++val; return *this; }
+
+  MyNum operator++(int) // postfix ++
+  {
+    MyNum t = MyNum(val);
+    ++val;
+    return t;
+  }
+};
+
+int main()
+{
+  MyNum a = MyNum(10), b = MyNum(5);
+  MyNum c = a.add(b);
+        c = a + b;
+  MyNum d = a.operator+(b);
+}
+ 
+*** Custom Conversions ***
+ 
+// Implicit conversion methods
+class MyNum
+{
+ public:
+  int value;
+  MyNum(int i) { value = i; }
+};
+
+int main()
+{
+  MyNum a = 5;        // implicit conversion
+  MyNum b = MyNum(5); // object construction
+  MyNum c(5);         // object construction
+  MyNum d = 'H';      // implicit conversion
+}
+ 
+ 
+// Explicit conversion methods
+class MyNum
+{
+ public:
+  int value;
+  explicit MyNum(int i) { value = i; }
+};
+
+int main()
+{
+  MyNum a = 5;        // error
+  MyNum b(5);         // allowed
+  MyNum c = MyNum(5); // allowed
+}
+ 
+*** Namespaces ***
+ 
+namespace furniture
+{
+  class Table {};
+}
+ 
+namespace html
+{
+  class Table {};
+}
+
+int main()
+{
+  furniture::Table fTable;
+  html::Table hTable;
+}
+ 
+ 
+// Nesting namespaces
+namespace furniture
+{
+  namespace wood { class Table {}; }
+}
+
+int main()
+{
+  furniture::wood::Table fTable;
+}
+ 
+ 
+// Importing namespaces
+namespace html
+{
+  class Table {};
+}
+
+namespace furniture
+{
+  namespace wood { class Table {}; }
+}
+
+using namespace html; // global namespace import
+ 
+int main()
+{
+  using namespace html; // local namespace import
+
+  // Namespace member import
+  using html::Table; // import a single namespace member
+
+  // Namespace alias
+  namespace myAlias = furniture::wood; // namespace alias
+  myAlias::Table fTable;
+}
+ 
+ 
+// Type alias
+typedef my::name::MyClass MyType;
+MyType t;
+
+typedef struct { int len; } Length;
+Length a, b, c;
+ 
+*** Constants ***
+ 
+int main()
+{
+  const int var = 5;
+  int const var2 = 10; // alternative order
+
+  // Constant pointers
+  int myPointee;
+  int *const p = &myPointee; // pointer constant
+  const int *q = &var; // pointee constant
+  const int *const r = &var; // pointer & pointee constant
+
+  // Constant references
+  const int& y = var; // referee constant
+}
+ 
+ 
+// Constant objects
+class MyClass
+{
+  public: int x;
+  void setX(int a) { x = a; }
+
+  // Constant return type and parameters
+  const int& getX() const { return x; }
+};
+
+int main()
+{
+  const MyClass a, b;
+  a = b;       // error: object is const
+  a.x = 10;    // error: object field is const
+  a.setX(2); // error: cannot call non-const method
+}
+ 
+ 
+// Constant fields
+class MyClass
+{
+ public:
+  int i;
+  const int c;
+  MyClass() : c(5), i(5) {}
+};
+ 
+ 
+class MyClass
+{
+ public:
+  static int si;
+  const static double csd;
+  const static int csi = 5;
+};
+int MyClass::si = 1;
+const double MyClass::csd = 1.23;
+ 
+*** Preprocessor ***
+ 
+#include <iostream> // search default directory
+#include "MyFile" // search current, then default
+#include "C:\MyFile" // absolute path
+#include "..\MyFile" // relative path
+
+// Macros
+#define MACRO 0 // macro definition
+int x = MACRO; // x = 0
+
+#undef MACRO // macro undefine
+#undef MACRO // allowed
+
+#define MAX(a,b) a>b ? a:b
+int x = MAX(MACRO, 1); // evaluates to 1
+
+#define MAX(a,b)  \
+            a>b ? \
+            a:b
+  
+// Conditional compilation directives
+#define DEBUG_LEVEL 3
+ 
+#if DEBUG_LEVEL > 2
+ // …
+#elif DEBUG_LEVEL == 2
+ // …
+#else
+ // …
+#endif
+ 
+ 
+// Compile if defined
+#define DEBUG
+
+#if defined DEBUG
+ // …
+#elif !defined DEBUG
+ // …
+#endif
+
+#ifdef DEBUG
+ // …
+#endif
+ 
+#ifndef DEBUG
+ // …
+#endif
+ 
+// Error directive
+#error Compilation aborted
+
+// Line directive
+#line 5 "My MyApp Error"
+
+// Pragma directive
+#pragma message( "Hello Compiler" )
+#pragma warning(disable : 4507)
+ 
+*** Exception Handling ***
+ 
+#include <iostream>
+using namespace std;
+
+int divide(int x, int y)
+{
+  if (y == 0) throw 0;
+  return x / y;
+}
+
+int main()
+{
+  try {
+    divide(10,0);
+  }
+  catch(int& e) {
+    std::cout << "Error code: " << e;
+  }
+  catch(char& e) {
+    std::cout << "Error char: " << e;
+  }
+  catch(...) { std::cout << "Error"; }
+}
+ 
+ 
+// Re-throwing exceptions
+int main()
+{
+  try {
+    try { throw 0; }
+    catch(...) { throw; } // re-throw exception
+  }
+  catch(...) { throw; } // run-time error
+}
+ 
+// Exception specification
+void error1() {}            // may throw any exceptions
+void error2() throw(...) {} // may throw any exceptions
+void error3() throw(int) {} // may only throw int
+void error4() throw() {}    // may not throw exceptions
+ 
+ 
+// Exception class
+#include <iostream>
+#include <exception>
+
+void make_error()
+{
+  throw std::exception("My Error Description");
+}
+
+int main()
+{
+  try { make_error(); }
+  catch (std::exception e) {
+    std::cout << e.what();
+  }
+}
+ 
+*** Type Conversions ***
+ 
+int main()
+{
+  // Promotion
+  long   a = 5;  // int promoted to long
+  double b = a2;  // long promoted to double
+ 
+  // Demotion
+  int  c = 10.5; // warning: possible loss of data
+  bool d = c;    // warning: possible loss of data
+}
+ 
+ 
+int main()
+{
+  // Explicit conversions
+  int  c = (int)10.5; // double demoted to int
+  char d = (char)c;   // int demoted to char
+}
+ 
+ 
+int main()
+{
+  // Static cast
+  char c = 10;       // 1 byte
+  int *p = (int*)&c; // 4 bytes
+  *p = 5; // run-time error: stack corruption
+  int *q = static_cast<int*>(&c); // compile-time error
+
+  // Reinterpret cast
+  int *r = reinterpret_cast<int*>(&c); // forced conversion
+}
+ 
+ 
+// Const cast
+#include <iostream>
+
+void print(int *p) { std::cout << *p; }
+
+int main()
+{
+  const int myConst = 5;
+  int *nonConst = const_cast<int*>(&myConst); // removes const
+  *nonConst = 10; // potential run-time error
+
+  print(&myConst); // error: cannot convert 
+                   // const int* to int*
+  print(nonConst); // allowed
+}
+ 
+ 
+// Dynamic cast
+#include <iostream>
+#include <exception>
+
+class MyBase { public: virtual void test() {} };
+class MyChild : public MyBase {};
+ 
+int main()
+{
+  MyChild *child = new MyChild();
+  MyBase  *base = dynamic_cast<MyBase*>(child); // ok
+
+  MyBase  *base2 = new MyBase();
+  MyChild *child2 = dynamic_cast<MyChild*>(base2);
+
+  if (child2 == 0) std::cout << "Null pointer returned";
+
+  try { MyChild &child = dynamic_cast<MyChild&>(*base2); }
+  catch(std::bad_cast &e)
+  {
+    std::cout << e.what(); // bad dynamic_cast
+  }
+}
+ 
+  
+ 
+class MyBase { public: virtual void test() {} };
+class MyChild : public MyBase {};
+ 
+int main()
+{
+  MyChild *child = new MyChild();
+  MyBase *base = static_cast<MyBase*>(child); // ok
+
+  // Succeeds for a MyChild object
+  MyChild *child2 = dynamic_cast<MyChild*>(base);
+
+  // Allowed, but invalid
+  MyChild *child3 = static_cast<MyChild*>(base);
+ 
+  // Incomplete MyChild object dereferenced
+  (*child3);
+}
+ 
+*** Templates ***
+ 
+// Function templates
+template<class T>
+void swap(T& a, T& b)
+{
+  T tmp = a;
+  a = b;
+  b = tmp;
+}
+
+int main()
+{
+  int a = 1, b = 2;
+  swap<int>(a,b); // calls int version of swap
+
+  bool c = true, d = false;
+  swap<bool>(c,d); // calls bool version of swap
+
+  int e = 1, f = 2;
+  swap(e,f); // calls int version of swap
+}
+ 
+ 
+template<class T, class U>
+void swap(T& a, U& b)
+{
+  T tmp = a;
+  a = b;
+  b = tmp;
+}
+
+int main()
+{
+  int a = 1;
+  long b = 2;
+  swap<int, long>(a,b);
+}
+ 
+ 
+// Class templates
+template<class T>
+class myBox
+{
+ public:
+  T a, b;
+};
+
+int main()
+{
+  myBox<int> box;
+}
+
+ 
+template<class T>
+class myBox
+{
+ public:
+  T a, b;
+  void swap();
+};
+ 
+template<class T>
+void myBox<T>::swap()
+{
+  T tmp = a;
+  a = b;
+  b = tmp;
+}
+ 
+ 
+// Non-type parameters
+template<class T, int N>
+class myBox
+{
+ public:
+  T store[N];
+};
+
+int main()
+{
+  myBox<int, 5> box;
+}
+ 
+// Class template specialization
+#include <iostream>
+ 
+template<class T>
+class myBox
+{
+ public:
+  T a;
+  void print() { std::cout << a; }
+};
+
+template<>
+class myBox<bool>
+{
+ public:
+  bool a;
+  void print() { std::cout << (a ? "true" : "false"); }
+};
+
+int main()
+{
+  myBox<bool> box = { true };
+  box.print(); // true
+}
+ 
+// Function template specialization
+#include <iostream>
+ 
+template<class T>
+class myBox
+{
+ public:
+  T a;
+ 
+  template<class T> void print() {
+    std::cout << a;
+  }
+ 
+  template<> void print<bool>() {
+    std::cout << (a ? "true" : "false");
+  }
+};
+
+int main()
+{
+  myBox<bool> box = { true };
+  box.print<bool>(); // true
+}
+ 
+*** Headers ***
+ 
+// MyFunc.c
+void myFunc()
+{
+  // …
+}
+ 
+// MyApp.c
+int main()
+{
+  myFunc(); // error: myFunc identifier not found
+}
+ 
+ 
+// MyApp.c
+void myFunc(); // prototype
+ 
+int main()
+{
+  myFunc(); // ok
+}
+ 
+ 
+// MyFunc.h
+void myFunc(); // prototype
+ 
+// MyApp.c
+#include "MyFunc.h"
+ 
+ 
+// MyApp.h - Interface
+#define PI 3.14
+const double E = 2.72;
+void myFunc();
+
+class MyClass
+{
+ public:
+  void myMethod();
+};
+ 
+ 
+// MyApp.c
+void MyClass::myMethod() {}
+ 
+ 
+// MyApp.h
+inline void myFunc() {}
+ 
+class MyClass
+{
+ public:
+  void myMethod() {}
+};
+
+template<class T>
+void templateFunction()
+{
+  // …
+}
+ 
+ 
+// MyApp.h
+#ifndef MYAPP
+#define MYAPP
+// …
+#endif
+ 
